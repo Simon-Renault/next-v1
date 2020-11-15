@@ -1,5 +1,5 @@
 
-@import "../styles/variables.scss";
+@import "variables.scss";
 .header{
 	height: $header-height;
     position: fixed;
@@ -16,6 +16,3 @@
     z-index: 999;
 }
 
-.inner{
-	
-}

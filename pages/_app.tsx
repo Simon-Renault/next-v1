@@ -1,33 +1,28 @@
 //types
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
 
 //imports
-import {CartContext} from '../contexts/cartContext'
-import { AnimatePresence , AnimateSharedLayout} from "framer-motion"
-import Header from '../components/header'
-import Footer from '../components/footer'
+import { CartContext } from '../contexts/cartContext';
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 //styles
-import '../styles/style.scss'
+import '../styles/style.scss';
 
-function MyApp({ Component, pageProps, router } : AppProps) {
-  return(
-    <CartContext.Provider value={{CartItems : []}}>
+function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
+	return (
+		<CartContext.Provider value={{ CartItems: [] }}>
+			<Header />
 
-		<Header/>
-		
-		<AnimateSharedLayout>
-			<AnimatePresence exitBeforeEnter>
+			<AnimateSharedLayout>
+				<AnimatePresence exitBeforeEnter>
+					<Component {...pageProps} key={router.route} />
+				</AnimatePresence>
+			</AnimateSharedLayout>
 
-				<Component {...pageProps} key={router.route} />
-
-			</AnimatePresence>
-		</AnimateSharedLayout>
-
-		<Footer/>
-		
-
-    </CartContext.Provider>
-  ) 
+			<Footer />
+		</CartContext.Provider>
+	);
 }
 
-export default MyApp
+export default MyApp;
