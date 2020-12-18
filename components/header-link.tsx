@@ -10,7 +10,7 @@ const HeaderLink = ({children,href}: IHeaderLinkProps): JSX.Element => {
 	
 	return (
 		<Link href={href}>
-			<a className="p-3 mb-2 text-sm uppercase rounded hover:bg-gray-50 md:ml-2 md:mb-0">{children}</a>
+			<a className="p-3 mb-2 font-sans text-sm uppercase rounded hover:bg-gray-50 md:ml-2 md:mb-0">{children}</a>
 		</Link>
 	)
 }
