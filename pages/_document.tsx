@@ -8,7 +8,7 @@ import Document, {
 } from 'next/document';
 
 class MyDocument extends Document {
-	
+
 	static async getInitialProps(
 		ctx: DocumentContext
 	): Promise<DocumentInitialProps> {
@@ -22,7 +22,7 @@ class MyDocument extends Document {
 				<Head>
 					<link rel="shortcut icon" href="/static/favicon.jpg" />
 				</Head>
-				<body>
+				<body data-scroll-container >
 					<Main />
 					<NextScript />
 				</body>

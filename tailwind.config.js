@@ -633,6 +633,11 @@ module.exports = {
 			700: '700ms',
 			1000: '1000ms',
 		},
+		boxShadow: {
+			sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+			lg: '0 0 15px 0 rgba(0,0,0,.1)',
+			none: 'none',
+		},
 		transitionProperty: {
 			none: 'none',
 			all: 'all',

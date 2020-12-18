@@ -8,8 +8,10 @@
 	-webkit-tap-highlight-color: transparent;
 }
 
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+/* purgecss end ignore */
 @tailwind utilities;
 
 @import 'variables.scss';
