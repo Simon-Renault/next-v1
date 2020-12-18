@@ -6,6 +6,11 @@ module.exports = {
 	presets: [],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
+		extend: {
+			backgroundImage: (theme) => ({
+				logo: "url('/logo.jpg')",
+			}),
+		},
 		screens: {
 			sm: '640px',
 			md: '768px',
@@ -163,7 +168,7 @@ module.exports = {
 		},
 		fontFamily: {
 			sans: [
-				'ui-sans-serif',
+				'hk-grotesk',
 				'system-ui',
 				'-apple-system',
 				'BlinkMacSystemFont',
@@ -178,17 +183,8 @@ module.exports = {
 				'"Segoe UI Symbol"',
 				'"Noto Color Emoji"',
 			],
-			serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-			mono: [
-				'ui-monospace',
-				'SFMono-Regular',
-				'Menlo',
-				'Monaco',
-				'Consolas',
-				'"Liberation Mono"',
-				'"Courier New"',
-				'monospace',
-			],
+			serif: ['span', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+			mono: [],
 		},
 		fontSize: {
 			xs: ['0.75rem', { lineHeight: '1rem' }],
