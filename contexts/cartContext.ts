@@ -1,19 +1,19 @@
 import { createContext } from 'react';
 
 interface ICartItem {
-    id: number;
-    title: string;
-    body: string;
+	id: number;
+	title: string;
+	body: string;
 }
 
-export interface ICartItemList {
-    CartItems: ICartItem[];
+export interface ICartItemContext {
+	CartItems: ICartItem[];
+	length: number;
 }
 
-export const cartContextDefaultValue: ICartItemList = {
-    CartItems: []
-}
+export const cartContextDefaultValue: ICartItemContext = {
+	CartItems: [],
+	length: 0,
+};
 
-export const CartContext = createContext<ICartItemList>(cartContextDefaultValue);
-
-
+export const CartContext = createContext<ICartItemContext>(cartContextDefaultValue);

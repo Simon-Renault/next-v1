@@ -6,6 +6,6 @@
 	"arrowParens": "always",
 	"jsxSingleQuote": false,
 	"htmlWhitespaceSensitivity": "css",
-	"printWidth": 80,
+	"printWidth": 120,
 	"endOfLine": "lf"
 }

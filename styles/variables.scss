@@ -1,8 +1,17 @@
 //Layout
 $max-width: 1200px;
 
-$header-height: 80px;
+$header-height: 90px;
 
 //Colors
 $colors-white: white;
+$colors-black: black;
 $colors-light-grey: #f3f3f3;
+$colors-dark-grey: #666;
+
+//breakpoints
+$breakpoint-mobile: 500px;
+$breakpoint-tablet: 800px;
+$breakpoint-desktop: 1200px;
+
+$breakpoint-header: $breakpoint-tablet;

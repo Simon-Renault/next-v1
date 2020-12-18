@@ -8,6 +8,7 @@ import Document, {
 } from 'next/document';
 
 class MyDocument extends Document {
+	
 	static async getInitialProps(
 		ctx: DocumentContext
 	): Promise<DocumentInitialProps> {
@@ -19,10 +20,7 @@ class MyDocument extends Document {
 		return (
 			<Html lang="en">
 				<Head>
-					<meta
-						name="viewport"
-						content="initial-scale=1.0, width=device-width"
-					/>
+					<link rel="shortcut icon" href="/static/favicon.jpg" />
 				</Head>
 				<body>
 					<Main />
