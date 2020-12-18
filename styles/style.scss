@@ -11,8 +11,6 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
-@tailwind utilities;
 
 @import 'variables.scss';
 
@@ -55,4 +53,7 @@
 }
 
 #__next {
+	min-height: 100vh;
 }
+/* purgecss end ignore */
+@tailwind utilities;
