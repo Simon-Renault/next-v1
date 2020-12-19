@@ -16,7 +16,7 @@ const Header = (): JSX.Element => {
 				<Link href="/">
 					<a className="flex flex-row items-center justify-center">
 						<div className="w-10 h-10 mr-3 bg-center bg-contain rounded-full bg-logo"></div>
-						<div className="font-sans text-sm font-medium uppercase">Simon Renault</div>
+						<div className="font-sans text-sm font-semibold uppercase">Simon Renault</div>
 					</a>
 				</Link>
 
