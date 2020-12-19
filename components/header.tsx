@@ -20,7 +20,11 @@ const Header = (): JSX.Element => {
 					</a>
 				</Link>
 
-				<motion.div  initial={false} animate={isOpen ? "open" : "closed"} className="flex h-full p-2 rounded cursor-pointer hover:bg-gray-50 md:hidden">
+				<motion.div
+					className="flex h-full p-2 rounded cursor-pointer hover:bg-gray-50 md:hidden"
+					initial={false}
+					animate={isOpen ? "open" : "closed"}
+				>
 
 					<MenuBurger toggle={() => toggleOpen()}/>
 				</motion.div>

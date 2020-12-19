@@ -8,7 +8,7 @@ interface IMenuBurgerProps {
 const Path = (props: JSX.IntrinsicAttributes & SVGMotionProps<SVGPathElement> & React.RefAttributes<SVGPathElement> ) : JSX.Element => (
   <motion.path
     fill="transparent"
-    strokeWidth="2"
+    strokeWidth="1.5"
     stroke="hsl(0, 0%, 18%)"
     strokeLinecap="round"
     {...props}
