@@ -16,12 +16,10 @@ const Header = () : JSX.Element => {
 					</a>
 				</Link>
 			
-				<div className="p-3 cursor-pointer hover:bg-gray-50 sm:hidden">
+				<div className="p-3 cursor-pointer hover:bg-gray-50 md:hidden">
 					<Menu size={20}/>
 				</div>
 				
-				
-
 				<nav className="fixed left-0 right-0 flex flex-col p-5 bg-white border-b border-gray-100 top-20 md:static md:border-b-0 md:flex-row md:p-0">
 					<HeaderLink href="/">Home</HeaderLink>
 					<HeaderLink href="/collection">Collection</HeaderLink>
