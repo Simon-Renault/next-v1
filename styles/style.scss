@@ -63,6 +63,11 @@ html {
 .no-fouc {
 	visibility: hidden;
 	opacity: 0;
+	*,
+	*::before,
+	*:after {
+		transition: none !important;
+	}
 }
 
 .fouc {
