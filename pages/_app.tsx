@@ -8,8 +8,16 @@ import Header from '@/components/header';
 
 //styles
 import '../styles/style.scss';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
+	useEffect(() => {
+		const removeFouc = (foucElement) => {
+			foucElement.className = foucElement.className.replace('no-fouc', 'fouc');
+		};
+		removeFouc(document.documentElement);
+	}, []);
+
 	return (
 		<CartContext.Provider
 			value={{

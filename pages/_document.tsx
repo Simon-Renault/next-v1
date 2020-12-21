@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
 	render(): JSX.Element {
 		return (
-			<Html lang="en">
+			<Html lang="en" className="no-fouc">
 				<Head>
 					<link rel="shortcut icon" href="/static/favicon.jpg" />
 				</Head>

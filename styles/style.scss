@@ -11,7 +11,6 @@
 @import 'variables.scss';
 @import 'functions.scss';
 
-/*fonts*/
 @import url('https://use.typekit.net/dqp0osx.css');
 
 @font-face {
@@ -52,4 +51,21 @@
 #__next {
 	min-height: 900vh;
 	font-family: hk-grotesk, Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	font-family: 'hk-grotesk', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
+
+body,
+html {
+	font-family: hk-grotesk, Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	font-family: 'hk-grotesk', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
+
+.no-fouc {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.fouc {
+	visibility: visible;
+	opacity: 1;
 }
