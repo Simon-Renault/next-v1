@@ -2,12 +2,12 @@
 @import 'functions.scss';
 
 $font-size-map: (
-	1900px: 16px,
+	2500px: 16px,
 	1200px: 14px,
 );
 
 $header-height-map: (
-	1900px: 120px,
+	2500px: 120px,
 	1200px: 80px,
 );
 
@@ -33,12 +33,23 @@ $header-height-map: (
 		margin: auto;
 		justify-content: space-between;
 	}
-
+	.separator {
+		width: 2px;
+		height: 20px;
+		border-radius: 1px;
+		background: $colors-light-grey;
+	}
+	.nav {
+		display: grid;
+		grid-auto-columns: auto;
+		grid-auto-flow: column;
+		align-items: center;
+		grid-gap: 5px;
+	}
 	.title_container {
 		display: flex;
 		align-items: center;
 		text-decoration: none;
-
 		.logo {
 			cursor: pointer;
 			width: 50px;

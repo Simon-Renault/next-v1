@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 
 			<AnimateSharedLayout>
 				<AnimatePresence exitBeforeEnter>
-					<Component {...pageProps} key={router.route} className="pt-20" />
+					<Component {...pageProps} key={router.route} />
 				</AnimatePresence>
 			</AnimateSharedLayout>
 		</CartContext.Provider>
