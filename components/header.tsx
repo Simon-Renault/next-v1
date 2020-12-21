@@ -51,7 +51,6 @@ const Header = (): JSX.Element => {
 					<AnimateSharedLayout>
 						<HeaderLink href="/">Home</HeaderLink>
 						<HeaderLink href="/collection">Collection</HeaderLink>
-						<HeaderLink href="/test">Test</HeaderLink>
 						<HeaderLink href="/drawing">Drawing</HeaderLink>
 						<div className={css.separator}></div>
 						<HeaderLink href="/cart">Cart</HeaderLink>

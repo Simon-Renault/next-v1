@@ -51,15 +51,5 @@
 
 #__next {
 	min-height: 900vh;
-}
-
-html {
-	$map: (
-		1900px: 20px,
-		1200: 17px,
-		500px: 16px,
-		300px: 15px,
-	);
 	font-family: hk-grotesk, Helvetica, Arial, Verdana, Tahoma, sans-serif;
-	@include poly-fluid-sizing('font-size', $map);
 }
