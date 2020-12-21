@@ -1,0 +1,36 @@
+@import 'variables.scss';
+@import 'functions.scss';
+
+$font-size-map: (
+	1900px: 16px,
+	1200px: 14px,
+);
+
+$header-height-map: (
+	1900px: 90px,
+	1200px: 80px,
+);
+
+.header {
+	@include poly-fluid-sizing('height', $header-height-map);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	transform: translate(0);
+	transition: all 0.5s ease;
+	border-bottom: 1px solid $colors-light-grey;
+	display: flex;
+	justify-content: center;
+	background: #fff;
+	@include poly-fluid-sizing('font-size', $font-size-map);
+	text-transform: uppercase;
+	.inner {
+		width: 66.6%;
+		display: flex;
+		align-items: center;
+		margin: auto;
+		justify-content: space-between;
+	}
+}

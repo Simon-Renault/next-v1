@@ -1,0 +1,22 @@
+@import 'variables.scss';
+@import 'functions.scss';
+
+.link {
+	text-decoration: none;
+	color: #212121;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	vertical-align: middle;
+	height: 100%;
+	padding: 5px 10px;
+	line-height: 24px;
+	box-sizing: border-box;
+	font-weight: 500;
+	text-transform: uppercase;
+	border-radius: 3px;
+	margin: 0 0 0 5px;
+	&:hover {
+		background: $colors-light-grey;
+	}
+}

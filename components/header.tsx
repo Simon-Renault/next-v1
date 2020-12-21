@@ -1,46 +1,64 @@
+import HeaderLink from '@/components/header-link';
+import Link from 'next/link';
+import css from './header.module.scss';
+import { AnimateSharedLayout, motion } from 'framer-motion';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import { useState } from 'react';
 
-import HeaderLink from '@/components/header-link'
-import Link from 'next/link'
-import MenuBurger from '@/components/MenuBurger'
-import { motion,useCycle } from 'framer-motion';
-
+const transition = {
+	duration: 0.2,
+	ease: [0.17, 0.67, 0.83, 0.67],
+};
+const variants = {
+	initial: {
+		boxShadow: '0 0px 0px 0 hsla(0,0%,56.9%,0.0)',
+		transition,
+	},
+	animate: {
+		boxShadow: '0 1px 30px 0 hsla(0,0%,56.9%,0.2)',
+		transition,
+	},
+};
 
 const Header = (): JSX.Element => {
-	const [isOpen, toggleOpen] = useCycle(false, true);
+	const [hasScrolled, setHasScrolled] = useState(false);
+	//const [isScrollingUp, setScrollingUp] = useState(false);
+
+	useScrollPosition(
+		({ currPos }) => {
+			setHasScrolled(currPos.y <= -300);
+		},
+		[setHasScrolled]
+	);
 
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 flex flex-row h-20 p-5 bg-white border-b border-gray-100 ">
-
-			<div className="flex flex-row items-center justify-between w-full m-auto transition-all lg:w-4/6  ">
-
+		<motion.header
+			className={css.header}
+			variants={variants}
+			initial={`closed`}
+			animate={hasScrolled ? `animate` : `initial`}
+		>
+			<div className={css.inner}>
 				<Link href="/">
-					<a className="flex flex-row items-center justify-center ">
-						<div className="w-10 h-10 mr-3 bg-center bg-contain rounded-full bg-logo"></div>
-						<div className="font-sans text-sm font-semibold uppercase ">Simon Renault</div>
+					<a className="">
+						<div className=""></div>
+						<div className="">Simon Renault</div>
 					</a>
 				</Link>
 
-				<motion.div
-					className="flex h-full p-2 rounded cursor-pointer hover:bg-gray-50 md:hidden"
-					initial={false}
-					animate={isOpen ? "open" : "closed"}
-				>
+				<div className=""></div>
 
-					<MenuBurger toggle={() => toggleOpen()}/>
-				</motion.div>
-
-				<nav className="fixed left-0 right-0 flex-col hidden p-5 bg-white border-b border-gray-100 md:flex top-20 md:static md:border-b-0 md:flex-row md:p-0">
-					<HeaderLink href="/">Home</HeaderLink>
-					<HeaderLink href="/collection">Collection</HeaderLink>
-					<HeaderLink href="/test">Test</HeaderLink>
-					<HeaderLink href="/drawing">Drawing</HeaderLink>
+				<nav className="">
+					<AnimateSharedLayout>
+						<HeaderLink href="/">Home</HeaderLink>
+						<HeaderLink href="/collection">Collection</HeaderLink>
+						<HeaderLink href="/test">Test</HeaderLink>
+						<HeaderLink href="/drawing">Drawing</HeaderLink>
+					</AnimateSharedLayout>
 				</nav>
-
 			</div>
+		</motion.header>
+	);
+};
 
-		</header>
-	)
-}
-
-
-export default Header
+export default Header;

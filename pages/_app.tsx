@@ -4,16 +4,12 @@ import type { AppProps } from 'next/app';
 //imports
 import { CartContext } from '@/contexts/cartContext';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
-import Header from "@/components/header"
+import Header from '@/components/header';
 
-  
 //styles
 import '../styles/style.scss';
 
-
-
 function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
-
 	return (
 		<CartContext.Provider
 			value={{
@@ -21,15 +17,13 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 				length: 0,
 			}}
 		>
-			
-			<Header/>
-			
+			<Header />
+
 			<AnimateSharedLayout>
 				<AnimatePresence exitBeforeEnter>
-					<Component {...pageProps} key={router.route} className="pt-20"/>
+					<Component {...pageProps} key={router.route} className="pt-20" />
 				</AnimatePresence>
 			</AnimateSharedLayout>
-
 		</CartContext.Provider>
 	);
 }
