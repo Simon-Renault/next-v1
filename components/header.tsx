@@ -22,7 +22,6 @@ const variants = {
 
 const Header = (): JSX.Element => {
 	const [hasScrolled, setHasScrolled] = useState(false);
-	//const [isScrollingUp, setScrollingUp] = useState(false);
 
 	useScrollPosition(
 		({ currPos }) => {
@@ -40,9 +39,9 @@ const Header = (): JSX.Element => {
 		>
 			<div className={css.inner}>
 				<Link href="/">
-					<a className="">
-						<div className=""></div>
-						<div className="">Simon Renault</div>
+					<a className={css.title_container}>
+						<div className={css.logo}></div>
+						<div className={css.title}>Simon Renault</div>
 					</a>
 				</Link>
 
