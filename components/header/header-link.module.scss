@@ -9,12 +9,15 @@
 	align-items: center;
 	vertical-align: middle;
 	height: 100%;
-	padding: 0.7em 0.7em 0.68em;
+	padding: 0.6em 0.6em 0.6em;
 	box-sizing: border-box;
 	font-weight: 500;
 	text-transform: uppercase;
 	border-radius: 3px;
 	transition: background 0.2s ease;
+	@media screen and (max-width: $breakpoint-tablet) {
+		padding: 1.5em 1.5em 1.5em;
+	}
 	&:hover,
 	&.active {
 		background: $colors-light-grey;

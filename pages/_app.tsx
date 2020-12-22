@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 //imports
 import { CartContext } from '@/contexts/cartContext';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
-import Header from '@/components/header';
+import Header from '@/components/header/header';
 
 //styles
 import '../styles/style.scss';

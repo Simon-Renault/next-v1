@@ -1,13 +1,13 @@
-import HeaderLink from '@/components/header-link';
 import Link from 'next/link';
 import css from './header.module.scss';
-import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import React, { useEffect, useState } from 'react';
-import { ShoppingCart } from 'react-feather';
-import MenuBurger from '@/components/menu-burger';
+import React, { useState } from 'react';
+import MenuBurger from '@/components/header/menu-burger';
+import Overlay from '@/components/header/overlay';
+import Nav from '@/components/header/nav';
+import MobileNav from '@/components/header/mobile-nav';
 
-import MobileNav from '@/components/mobileNav';
 const transition = {
 	duration: 0.1,
 	ease: [0.17, 0.67, 0.83, 0.67],
@@ -34,8 +34,6 @@ const Header = (): JSX.Element => {
 		[setHasScrolled]
 	);
 
-	useEffect;
-
 	return (
 		<>
 			<motion.header
@@ -54,20 +52,9 @@ const Header = (): JSX.Element => {
 
 					<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
 
-					<nav className={css.nav}>
-						<AnimateSharedLayout>
-							<HeaderLink href="/">Home</HeaderLink>
-							<HeaderLink href="/collection">Collection</HeaderLink>
-							<HeaderLink href="/drawing">Drawing</HeaderLink>
-							<div className={css.separator}></div>
-							<HeaderLink href="/cart">
-								<ShoppingCart size={16} style={{ margin: '0 2px 0 0' }} />
-							</HeaderLink>
-						</AnimateSharedLayout>
-					</nav>
+					<Nav isOpen={isNavOpen} />
 				</div>
 			</motion.header>
-			<AnimatePresence>{isNavOpen && <MobileNav />}</AnimatePresence>
 		</>
 	);
 };

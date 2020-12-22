@@ -25,28 +25,14 @@ $font-size-map: (
 		padding: 0 5%;
 	}
 	.inner {
+		z-index: 1000;
 		width: 100%;
 		display: flex;
 		align-items: center;
 		margin: auto;
 		justify-content: space-between;
 	}
-	.separator {
-		width: 2px;
-		height: 20px;
-		border-radius: 1px;
-		background: $colors-light-grey;
-	}
-	.nav {
-		display: grid;
-		grid-auto-columns: auto;
-		grid-auto-flow: column;
-		align-items: center;
-		grid-gap: 12px;
-		@media screen and (max-width: $breakpoint-tablet) {
-			display: none;
-		}
-	}
+
 	.title_container {
 		display: flex;
 		align-items: center;
