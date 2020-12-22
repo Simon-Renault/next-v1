@@ -25,8 +25,12 @@ $header-height-map: (
 	background: #fff;
 	@include poly-fluid-sizing('font-size', $font-size-map);
 	text-transform: uppercase;
+	padding: 0 20px;
+	@media screen and (min-width: $breakpoint-tablet) {
+		padding: 0 5%;
+	}
 	.inner {
-		width: 66.6%;
+		width: 100%;
 		display: flex;
 		align-items: center;
 		margin: auto;
@@ -43,7 +47,10 @@ $header-height-map: (
 		grid-auto-columns: auto;
 		grid-auto-flow: column;
 		align-items: center;
-		grid-gap: 5px;
+		grid-gap: 12px;
+		@media screen and (max-width: $breakpoint-tablet) {
+			display: none;
+		}
 	}
 	.title_container {
 		display: flex;
@@ -72,5 +79,18 @@ $header-height-map: (
 				box-shadow: 0 0 0 4px $colors-light-grey;
 			}
 		}
+	}
+}
+
+.mobile_nav {
+	//z-index: 99;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	@media screen and (min-width: $breakpoint-tablet) {
+		display: none;
 	}
 }
