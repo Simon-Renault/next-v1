@@ -3,10 +3,11 @@ import Link from 'next/link';
 import css from './header.module.scss';
 import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ShoppingCart } from 'react-feather';
 import MenuBurger from '@/components/menu-burger';
 
+import MobileNav from '@/components/mobileNav';
 const transition = {
 	duration: 0.1,
 	ease: [0.17, 0.67, 0.83, 0.67],
@@ -22,21 +23,6 @@ const variants = {
 	},
 };
 
-const MobileMenuVariants = {
-	initial: {
-		opacity: 0,
-		transition,
-	},
-	animate: {
-		opacity: 1,
-		transition,
-	},
-	exit: {
-		opacity: 0,
-		transition,
-	},
-};
-
 const Header = (): JSX.Element => {
 	const [hasScrolled, setHasScrolled] = useState(false);
 	const [isNavOpen, toggleNav] = useState(false);
@@ -47,6 +33,8 @@ const Header = (): JSX.Element => {
 		},
 		[setHasScrolled]
 	);
+
+	useEffect;
 
 	return (
 		<>
@@ -79,17 +67,7 @@ const Header = (): JSX.Element => {
 					</nav>
 				</div>
 			</motion.header>
-			<AnimatePresence>
-				{isNavOpen && (
-					<motion.div
-						variants={MobileMenuVariants}
-						initial="initial"
-						animate="animate"
-						exit="exit"
-						className={css.mobile_nav}
-					></motion.div>
-				)}
-			</AnimatePresence>
+			<AnimatePresence>{isNavOpen && <MobileNav />}</AnimatePresence>
 		</>
 	);
 };

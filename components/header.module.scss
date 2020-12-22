@@ -6,11 +6,6 @@ $font-size-map: (
 	1200px: 14px,
 );
 
-$header-height-map: (
-	2500px: 120px,
-	1200px: 80px,
-);
-
 .header {
 	@include poly-fluid-sizing('height', $header-height-map);
 	position: fixed;
@@ -79,18 +74,5 @@ $header-height-map: (
 				box-shadow: 0 0 0 4px $colors-light-grey;
 			}
 		}
-	}
-}
-
-.mobile_nav {
-	//z-index: 99;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-	@media screen and (min-width: $breakpoint-tablet) {
-		display: none;
 	}
 }

@@ -14,3 +14,9 @@ $breakpoint-tablet: 800px;
 $breakpoint-desktop: 1200px;
 
 $breakpoint-header: $breakpoint-tablet;
+
+//header
+$header-height-map: (
+	2500px: 120px,
+	1200px: 80px,
+);
