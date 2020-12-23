@@ -109,6 +109,9 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 							exit="exit"
 							transition={{ easing: 'in', duration: 0.3, delay: 0.25 }}
 							className={css.overlay}
+							onClick={() => {
+								toggleNav(false);
+							}}
 						>
 							<motion.div
 								variants={mobileVariants}
