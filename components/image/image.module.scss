@@ -1,0 +1,22 @@
+@import 'variables.scss';
+@import 'functions.scss';
+
+.image {
+	position: relative;
+	height: 80vh;
+	> div > img {
+		opacity: 0;
+		transition: opacity 1s ease-in;
+		filter: blur(20px);
+		will-change: opacity filter;
+	}
+	&.loading {
+		background: $colors-light-grey;
+	}
+	&.loaded {
+		> div > img {
+			opacity: 1;
+			filter: blur(0px);
+		}
+	}
+}
