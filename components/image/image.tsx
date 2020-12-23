@@ -5,8 +5,8 @@ import css from './image.module.scss';
 interface IImageProps {
 	src: string;
 	alt?: string;
-	className: string;
-	style: CSSProperties;
+	className?: string;
+	style?: CSSProperties;
 	onLoad?: () => void;
 }
 
