@@ -7,10 +7,14 @@ import MenuBurger from '@/components/header/menu-burger';
 import { useMediaQuery } from 'react-responsive';
 import { useRouter } from 'next/router';
 import HeaderLink from '@/components/header/header-link';
+import useLockBodyScroll from '@/hooks/lockBodyScroll';
 
+// Interfaces and types
 interface IHeaderProps {
 	children: ReactNode;
 }
+
+// Framer motion definitions
 const transition = {
 	duration: 0.1,
 };
@@ -49,14 +53,15 @@ const mobileVariants = {
 };
 
 const Header = ({ children }: IHeaderProps): JSX.Element => {
+	//state
 	const router = useRouter();
 	const [hasScrolled, setHasScrolled] = useState(false);
 	const [isNavOpen, toggleNav] = useState(false);
-
 	const isMobile = useMediaQuery({
 		query: '(min-device-width: 800px)',
 	});
 
+	//Effects
 	useEffect(() => {
 		if (isMobile) toggleNav(false);
 	}, [isMobile]);
@@ -65,6 +70,9 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 		toggleNav(false);
 	}, [router.pathname]);
 
+	//Hooks
+	useLockBodyScroll(isNavOpen && isMobile);
+
 	useScrollPosition(
 		({ currPos }) => {
 			setHasScrolled(currPos.y <= -300);
@@ -72,13 +80,14 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 		[setHasScrolled]
 	);
 
+	//Render
 	return (
 		<>
 			<motion.header
 				className={css.header}
 				variants={variants}
 				initial={`closed`}
-				animate={hasScrolled ? `animate` : `initial`}
+				animate={hasScrolled && !isNavOpen ? `animate` : `initial`}
 			>
 				<div className={css.inner}>
 					<Link href="/">
@@ -98,12 +107,12 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 							initial="initial"
 							animate="animate"
 							exit="exit"
-							transition={{ easing: 'in', duration: 0.3 }}
+							transition={{ easing: 'in', duration: 0.3, delay: 0.25 }}
 							className={css.overlay}
 						>
 							<motion.div
 								variants={mobileVariants}
-								transition={{ type: 'spring', duration: 0.3, delay: 0.1 }}
+								transition={{ type: 'spring', duration: 0.3, delay: 0.25 }}
 								className={css.nav_mobile}
 							>
 								{children}
