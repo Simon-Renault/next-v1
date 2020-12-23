@@ -2,15 +2,17 @@ import Link from 'next/link';
 import css from './header.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import React, { useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import MenuBurger from '@/components/header/menu-burger';
-import Overlay from '@/components/header/overlay';
-import Nav from '@/components/header/nav';
-import MobileNav from '@/components/header/mobile-nav';
+import { useMediaQuery } from 'react-responsive';
+import { useRouter } from 'next/router';
+import HeaderLink from '@/components/header/header-link';
 
+interface IHeaderProps {
+	children: ReactNode;
+}
 const transition = {
 	duration: 0.1,
-	ease: [0.17, 0.67, 0.83, 0.67],
 };
 const variants = {
 	initial: {
@@ -23,9 +25,45 @@ const variants = {
 	},
 };
 
-const Header = (): JSX.Element => {
+const overlayVariants = {
+	initial: {
+		opacity: 0,
+	},
+	animate: {
+		opacity: 1,
+	},
+	exit: {
+		opacity: 0,
+	},
+};
+
+const mobileVariants = {
+	initial: {
+		opacity: 0,
+		y: -100,
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+	},
+};
+
+const Header = ({ children }: IHeaderProps): JSX.Element => {
+	const router = useRouter();
 	const [hasScrolled, setHasScrolled] = useState(false);
 	const [isNavOpen, toggleNav] = useState(false);
+
+	const isMobile = useMediaQuery({
+		query: '(min-device-width: 800px)',
+	});
+
+	useEffect(() => {
+		if (isMobile) toggleNav(false);
+	}, [isMobile]);
+
+	useEffect(() => {
+		toggleNav(false);
+	}, [router.pathname]);
 
 	useScrollPosition(
 		({ currPos }) => {
@@ -49,14 +87,37 @@ const Header = (): JSX.Element => {
 							<div className={css.title}>Simon Renault</div>
 						</a>
 					</Link>
-
 					<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
-
-					<Nav isOpen={isNavOpen} />
+					<div className={css.nav}>{children}</div>
 				</div>
+				<AnimatePresence>
+					{isNavOpen && (
+						<motion.div
+							key="mobileNav"
+							variants={overlayVariants}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+							transition={{ easing: 'in', duration: 0.3 }}
+							className={css.overlay}
+						>
+							<motion.div
+								variants={mobileVariants}
+								transition={{ type: 'spring', duration: 0.3, delay: 0.1 }}
+								className={css.nav_mobile}
+							>
+								{children}
+							</motion.div>
+						</motion.div>
+					)}
+				</AnimatePresence>
 			</motion.header>
 		</>
 	);
 };
 
+const Separator = (): JSX.Element => <div className={css.separator}></div>;
+
 export default Header;
+
+export { HeaderLink, Separator };
