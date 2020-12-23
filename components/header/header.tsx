@@ -71,7 +71,7 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 	}, [router.pathname]);
 
 	//Hooks
-	useLockBodyScroll(isNavOpen && isMobile);
+	useLockBodyScroll(isNavOpen && !isMobile);
 
 	useScrollPosition(
 		({ currPos }) => {
