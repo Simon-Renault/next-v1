@@ -5,6 +5,12 @@ import Img from '@/components/image/image';
 
 const url = 'https://simonr.s3.eu-west-2.amazonaws.com/elephant.jpeg';
 
+const variants = {
+	exit: {
+		opacity: 0,
+	},
+};
+
 const Home = (): JSX.Element => (
 	<>
 		<Head>
@@ -12,9 +18,14 @@ const Home = (): JSX.Element => (
 			<meta name="description" content=""></meta>
 		</Head>
 		<motion.div initial="initial" animate="animate" exit="exit" key="Home" className="Home">
-			<div style={{ margin: '100px 0 0 100px' }}>
+			<motion.div
+				style={{ margin: '100px 0 0 100px' }}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+			>
 				<Img src={url} />
-			</div>
+			</motion.div>
 		</motion.div>
 	</>
 );
