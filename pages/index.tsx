@@ -13,7 +13,11 @@ const Home = (): JSX.Element => {
 				<meta name="description" content=""></meta>
 			</Head>
 			<motion.div initial="initial" animate="animate" exit="exit" key="Home" className={css.index}>
-				<Img className={css.hero_image} src="https://simonr.s3.eu-west-2.amazonaws.com/elephant.jpeg" />
+				<Img
+					alt="Cover image showing a detailed elephant drawing"
+					className={css.hero_image}
+					src="https://simonr.s3.eu-west-2.amazonaws.com/elephant.jpeg"
+				/>
 			</motion.div>
 		</>
 	);

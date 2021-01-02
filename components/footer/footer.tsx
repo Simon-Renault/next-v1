@@ -3,7 +3,11 @@ import Img from '@/components/image/image';
 const Footer = (): JSX.Element => (
 	<footer className={css.footer}>
 		<div className={css.top}>
-			<Img className={css.image} src="https://simonr.s3.eu-west-2.amazonaws.com/top.jpeg" />
+			<Img
+				alt="Cover image showing a detailed drawing"
+				className={css.image}
+				src="https://simonr.s3.eu-west-2.amazonaws.com/top.jpeg"
+			/>
 		</div>
 		<div className={css.inner}>
 			<div className={css.col}>

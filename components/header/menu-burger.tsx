@@ -8,7 +8,7 @@ interface IMenuBurgerProps {
 
 const MenuBurger = ({ onClick, isOpen }: IMenuBurgerProps): JSX.Element => {
 	return (
-		<button className={css.burger} onClick={() => onClick()}>
+		<button aria-label="Open primary menu" className={css.burger} onClick={() => onClick()}>
 			{isOpen && <X size={18} />}
 			{!isOpen && <Menu size={18} />}
 		</button>

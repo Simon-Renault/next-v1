@@ -82,52 +82,50 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 
 	//Render
 	return (
-		<>
-			<motion.header
-				className={css.header}
-				variants={variants}
-				initial={`closed`}
-				animate={hasScrolled && !isNavOpen ? `animate` : `initial`}
-			>
-				<div className={css.top}>
-					<div className={css.inner}>
-						<Link href="/">
-							<a className={css.title_container}>
-								<div className={css.logo}></div>
-								<div className={css.title}>Simon Renault</div>
-							</a>
-						</Link>
-						<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
-						<div className={css.nav}>{children}</div>
-					</div>
+		<motion.header
+			className={css.header}
+			variants={variants}
+			initial={`closed`}
+			animate={hasScrolled && !isNavOpen ? `animate` : `initial`}
+		>
+			<div className={css.top}>
+				<div className={css.inner}>
+					<Link href="/">
+						<a className={css.title_container}>
+							<div className={css.logo}></div>
+							<div className={css.title}>Simon Renault</div>
+						</a>
+					</Link>
+					<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
+					<nav className={css.nav}>{children}</nav>
 				</div>
+			</div>
 
-				<AnimatePresence>
-					{isNavOpen && (
-						<motion.div
-							key="mobileNav"
-							variants={overlayVariants}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-							transition={{ easing: 'in', duration: 0.2, delay: 0 }}
-							className={css.overlay}
-							onClick={() => {
-								toggleNav(false);
-							}}
+			<AnimatePresence>
+				{isNavOpen && (
+					<motion.div
+						key="mobileNav"
+						variants={overlayVariants}
+						initial="initial"
+						animate="animate"
+						exit="exit"
+						transition={{ easing: 'in', duration: 0.2, delay: 0 }}
+						className={css.overlay}
+						onClick={() => {
+							toggleNav(false);
+						}}
+					>
+						<motion.nav
+							variants={mobileVariants}
+							transition={{ type: 'spring', duration: 0.2, delay: 0.25 }}
+							className={css.nav_mobile}
 						>
-							<motion.div
-								variants={mobileVariants}
-								transition={{ type: 'spring', duration: 0.2, delay: 0.25 }}
-								className={css.nav_mobile}
-							>
-								{children}
-							</motion.div>
-						</motion.div>
-					)}
-				</AnimatePresence>
-			</motion.header>
-		</>
+							{children}
+						</motion.nav>
+					</motion.div>
+				)}
+			</AnimatePresence>
+		</motion.header>
 	);
 };
 
