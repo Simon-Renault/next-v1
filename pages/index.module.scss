@@ -1,0 +1,10 @@
+@import 'variables.scss';
+@import 'functions.scss';
+
+.index {
+	@include poly-fluid-sizing('padding-top', $header-height-map);
+}
+.hero_image {
+	background-color: $colors-light-grey;
+	height: 50vh;
+}

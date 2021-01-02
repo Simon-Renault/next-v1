@@ -32,6 +32,7 @@
 		"react-feather": "^2.0.8",
 		"react-intersection-observer": "^8.30.3",
 		"react-responsive": "^8.2.0",
+		"react-use-rect": "^1.0.0",
 		"stylelint": "^13.8.0",
 		"stylelint-config-recommended": "^3.0.0",
 		"stylelint-order": "^4.1.0",

@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app';
 import { CartContext } from '@/contexts/cartContext';
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import Header, { HeaderLink, Separator } from '@/components/header/header';
-
+import Footer from '@/components/footer/footer';
 import { ShoppingCart } from 'react-feather';
 
 //styles
@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 				length: 0,
 			}}
 		>
-			<div></div>
 			<Header>
 				<HeaderLink href="/">Home</HeaderLink>
 				<HeaderLink href="/collection">Collection</HeaderLink>
@@ -43,6 +42,8 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
 					<Component {...pageProps} key={router.route} />
 				</AnimatePresence>
 			</AnimateSharedLayout>
+
+			<Footer />
 		</CartContext.Provider>
 	);
 }

@@ -16,7 +16,7 @@ interface IHeaderProps {
 
 // Framer motion definitions
 const transition = {
-	duration: 0.1,
+	duration: 0.3,
 };
 const variants = {
 	initial: {
@@ -89,16 +89,19 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 				initial={`closed`}
 				animate={hasScrolled && !isNavOpen ? `animate` : `initial`}
 			>
-				<div className={css.inner}>
-					<Link href="/">
-						<a className={css.title_container}>
-							<div className={css.logo}></div>
-							<div className={css.title}>Simon Renault</div>
-						</a>
-					</Link>
-					<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
-					<div className={css.nav}>{children}</div>
+				<div className={css.top}>
+					<div className={css.inner}>
+						<Link href="/">
+							<a className={css.title_container}>
+								<div className={css.logo}></div>
+								<div className={css.title}>Simon Renault</div>
+							</a>
+						</Link>
+						<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
+						<div className={css.nav}>{children}</div>
+					</div>
 				</div>
+
 				<AnimatePresence>
 					{isNavOpen && (
 						<motion.div
@@ -107,7 +110,7 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 							initial="initial"
 							animate="animate"
 							exit="exit"
-							transition={{ easing: 'in', duration: 0.3, delay: 0.25 }}
+							transition={{ easing: 'in', duration: 0.2, delay: 0 }}
 							className={css.overlay}
 							onClick={() => {
 								toggleNav(false);
@@ -115,7 +118,7 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 						>
 							<motion.div
 								variants={mobileVariants}
-								transition={{ type: 'spring', duration: 0.3, delay: 0.25 }}
+								transition={{ type: 'spring', duration: 0.2, delay: 0.25 }}
 								className={css.nav_mobile}
 							>
 								{children}

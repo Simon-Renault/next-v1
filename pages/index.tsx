@@ -1,33 +1,22 @@
 //libraries
 import { motion } from 'framer-motion';
 import Head from 'next/head';
+import css from './index.module.scss';
+import React from 'react';
 import Img from '@/components/image/image';
 
-const url = 'https://simonr.s3.eu-west-2.amazonaws.com/elephant.jpeg';
-
-const variants = {
-	exit: {
-		opacity: 0,
-	},
-};
-
-const Home = (): JSX.Element => (
-	<>
-		<Head>
-			<title>Home</title>
-			<meta name="description" content=""></meta>
-		</Head>
-		<motion.div initial="initial" animate="animate" exit="exit" key="Home" className="Home">
-			<motion.div
-				style={{ margin: '100px 0 0 100px' }}
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				exit={{ opacity: 0 }}
-			>
-				<Img src={url} />
+const Home = (): JSX.Element => {
+	return (
+		<>
+			<Head>
+				<title>Home</title>
+				<meta name="description" content=""></meta>
+			</Head>
+			<motion.div initial="initial" animate="animate" exit="exit" key="Home" className={css.index}>
+				<Img className={css.hero_image} src="https://simonr.s3.eu-west-2.amazonaws.com/elephant.jpeg" />
 			</motion.div>
-		</motion.div>
-	</>
-);
+		</>
+	);
+};
 
 export default Home;
