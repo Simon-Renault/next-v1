@@ -3,8 +3,49 @@
 
 .index {
 	@include poly-fluid-sizing('padding-top', $header-height-map);
+	button {
+		padding: 0 20px;
+		height: 60px;
+		border: none;
+		color: white;
+		background-color: $colors-black;
+		border-radius: 3px;
+		font-size: 17px;
+		cursor: pointer;
+	}
 }
 .hero_image {
 	background-color: $colors-light-grey;
 	height: 50vh;
+}
+.text_center {
+	max-width: 800px;
+	margin: 100px auto;
+	text-align: center;
+	h2 {
+		font-size: 50px;
+		margin: 0 0 20px;
+		font-family: span;
+	}
+	p {
+		line-height: 1.7em;
+		opacity: 70%;
+		margin: 0 0 20px;
+		font-size: 17px;
+	}
+}
+
+.gallery_preview {
+	$gap: 66px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin: 20px 15%;
+	grid-gap: $gap;
+	align-items: start;
+	.col {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-rows: auto;
+		grid-gap: $gap;
+	}
 }
