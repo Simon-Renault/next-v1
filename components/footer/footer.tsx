@@ -6,7 +6,7 @@ const Footer = (): JSX.Element => (
 			<Img
 				alt="Cover image showing a detailed drawing"
 				className={css.image}
-				src="https://simonr.s3.eu-west-2.amazonaws.com/top.jpeg"
+				src="https://simonr.s3.eu-west-2.amazonaws.com/IMG_20200728_123049-01.jpeg"
 			/>
 		</div>
 		<div className={css.inner}>
