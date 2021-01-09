@@ -13,6 +13,7 @@
 	&.loading {
 		background: $colors-light-grey;
 	}
+	@include loader();
 	&.loaded {
 		> div > img {
 			opacity: 1;
