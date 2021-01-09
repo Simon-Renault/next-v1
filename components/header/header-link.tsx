@@ -22,7 +22,7 @@ const HeaderLink = ({ children, href }: IHeaderLinkProps): JSX.Element => {
 	const className = `${css.link} ${isActive ? css.active : ''}`;
 
 	return (
-		<Link href={href}>
+		<Link href={href} key={href}>
 			<a className={className}>
 				{children}
 				{isActive && (

@@ -98,7 +98,9 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 					</Link>
 					<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
 					<AnimateSharedLayout>
-						<nav className={css.nav}>{children}</nav>
+						<motion.nav className={css.nav} layout>
+							{children}
+						</motion.nav>
 					</AnimateSharedLayout>
 				</div>
 			</div>
