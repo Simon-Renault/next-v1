@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import css from './header.module.scss';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, AnimateSharedLayout } from 'framer-motion';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import React, { ReactNode, useEffect, useState } from 'react';
 import MenuBurger from '@/components/header/menu-burger';
@@ -97,7 +97,9 @@ const Header = ({ children }: IHeaderProps): JSX.Element => {
 						</a>
 					</Link>
 					<MenuBurger isOpen={isNavOpen} onClick={() => toggleNav(!isNavOpen)} />
-					<nav className={css.nav}>{children}</nav>
+					<AnimateSharedLayout>
+						<nav className={css.nav}>{children}</nav>
+					</AnimateSharedLayout>
 				</div>
 			</div>
 

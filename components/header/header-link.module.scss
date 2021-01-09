@@ -13,13 +13,25 @@
 	box-sizing: border-box;
 	font-weight: 500;
 	text-transform: uppercase;
-	border-radius: 3px;
+	z-index: 2;
 	transition: background 0.2s ease;
 	@media screen and (max-width: $breakpoint-tablet) {
 		padding: 1.5em 1.5em 1.5em;
 	}
+	.bg {
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 3px;
+		background: $colors-light-grey;
+	}
 	&:hover,
 	&.active {
-		background: $colors-light-grey;
+		.bg {
+			background: $colors-light-grey;
+		}
 	}
 }
